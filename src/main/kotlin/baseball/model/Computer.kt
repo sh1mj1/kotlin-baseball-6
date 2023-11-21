@@ -12,12 +12,10 @@ class Computer {
     private lateinit var ballAndStrike: BallAndStrike
 
     fun generateAnswer() {
-        val answer = mutableListOf<Int>()
+        val answer = LinkedHashSet<Int>()
         while (answer.size < DIGIT_NUMBER) {
             val randomNum = Randoms.pickNumberInRange(START_INCLUSIVE, END_INCLUSIVE)
-            if (!answer.contains(randomNum)) {
-                answer.add(randomNum)
-            }
+            answer.add(randomNum)
         }
         this.answer = answer.toList()
     }
