@@ -11,14 +11,14 @@ data class BallAndStrike(
 ) {
     fun getResult(input: String, answer: List<Int>): BallAndStrike {
         for (i in 0 until DIGIT_NUMBER) {
+            if (input[i] - '0' == answer[i]) {
+                strike++
+                continue
+            }
             if (answer.contains(input[i] - '0')) {
                 ball++
             }
-            if (input[i] - '0' == answer[i]) {
-                strike++
-            }
         }
-        ball -= strike
         return this
     }
 
