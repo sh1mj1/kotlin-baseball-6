@@ -76,3 +76,7 @@
 * **Service**
     * `NumberValidator`
         * 입력한 세자리 수를 검증해주는 역할 담당
+
+# 마지막으로 리팩토링한 결과
+
+![img.png](refactoring_ver3.png)

@@ -3,13 +3,14 @@ package baseball.model
 import baseball.config.GameNumberConfig.DIGIT_NUMBER
 import baseball.config.GameNumberConfig.END_INCLUSIVE
 import baseball.config.GameNumberConfig.START_INCLUSIVE
+import baseball.service.NumberValidator
 import camp.nextstep.edu.missionutils.Randoms
 
 class Computer {
-    var input: String = ""
     private var answer: List<Int> = emptyList()
 
     private val numberComparator = NumberComparator()
+    private val numberValidator = NumberValidator()
 
     fun generateAnswer() {
         val answer = mutableListOf<Int>()
@@ -22,7 +23,8 @@ class Computer {
         this.answer = answer.toList()
     }
 
-    fun getResult(): BallAndStrike {
+    fun getResult(input: String = ""): BallAndStrike {
+        numberValidator.validate(input)
         return numberComparator.compare(input, answer)
     }
 }
