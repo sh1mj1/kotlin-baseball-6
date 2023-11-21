@@ -77,6 +77,10 @@
     * `NumberValidator`
         * 입력한 세자리 수를 검증해주는 역할 담당
 
-# 마지막으로 리팩토링한 결과
+# 3차 리팩토링한 결과
 
-![img.png](refactoring_ver3.png)
+![img.png](refactoring_ver_3.png)
+
+# 4차 리팩토링한 결과
+
+![img.png](refactoring_ver_4.png)

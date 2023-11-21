@@ -1,6 +1,5 @@
 package baseball.controller
 
-import baseball.config.GameNumberConfig.DIGIT_NUMBER
 import baseball.model.Computer
 import baseball.view.InputCmdView
 import baseball.view.InputNumberView
@@ -27,13 +26,12 @@ class GameController {
     }
 
     private fun startTurn() {
-        computer.generateAnswer() // A. 컴퓨터는 사용자가 맞힐 정답을 생성한다.
+        computer.generateAnswer()
 
         while (true) {
-            val result = computer.getResult(inputNumberView.inputNumber()) // 사용자의 수를 가지고, 결과를 얻는다.
-
-            outputResultView.showResult(result) // C-2 결과 출력
-            if (result.strike == DIGIT_NUMBER) {
+            val result = computer.getResult(inputNumberView.inputNumber())
+            outputResultView.showResult(result)
+            if (computer.isSuccess()) {
                 break
             }
         }

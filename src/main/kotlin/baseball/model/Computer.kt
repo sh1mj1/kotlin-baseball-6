@@ -8,9 +8,8 @@ import camp.nextstep.edu.missionutils.Randoms
 
 class Computer {
     private var answer: List<Int> = emptyList()
-
-    private val numberComparator = NumberComparator()
     private val numberValidator = NumberValidator()
+    private lateinit var ballAndStrike: BallAndStrike
 
     fun generateAnswer() {
         val answer = mutableListOf<Int>()
@@ -25,6 +24,10 @@ class Computer {
 
     fun getResult(input: String = ""): BallAndStrike {
         numberValidator.validate(input)
-        return numberComparator.compare(input, answer)
+        ballAndStrike = BallAndStrike()
+        return ballAndStrike.getResult(input, answer)
     }
+
+    fun isSuccess() = ballAndStrike.isSuccess()
+
 }
